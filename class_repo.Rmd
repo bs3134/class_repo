@@ -1,21 +1,24 @@
 ---
-title: "Simple document"
+title: "Homework 1"
 output: html_document
+author: "Bihui Sun"
+date: 2018-09-15
 ---
 
-I'm an R Markdown document! 
+# Problem 1
+```{r chunk_name}
+x = runif(n=10,min=0,max=5)
+x
+sum(x > 2)
 
-# Section 1
-
-Here's a **code chunk** that samples from 
-a _normal distribution_:
+```
+* Therefore, there are `r sum(x>2)` elements greater than 2.
 
 ```{r}
-samp = rnorm(100)
-length(samp)
+library(tidyverse)
+y=tibble(
+  vec_char=1:10,
+  vec_factor=factor(c("Male","Male","Female","Male","Female","Male","Female","Female","Female","Male"))
+)
+y
 ```
-
-# Section 2
-
-I can take the mean of the sample, too!
-The mean is `r mean(samp)`.
