@@ -1,0 +1,26 @@
+---
+title: "Homework 1"
+output: github_document
+author: "Bihui Sun"
+date: 2018-09-15
+---
+
+# Problem 1
+```{r chunk_name}
+library(tidyverse)
+data_hw=tibble(
+  unif = runif(n=10,min=0,max=5),
+  logic= unif>2,
+  char = 1:10,
+  fact = factor(c("Male","Male","Female","Male","Female","Male","Female","Female","Female","Male"))
+)
+data_hw
+
+```
+
+
+
+* The mean of unif is `r mean(data_hw$unif)`
+* The mean of logic is `r mean(data_hw$logic)`
+* The mean of char is `r mean(data_hw$char)`
+* The mean of fact is `r mean(data_hw$fact)`
