@@ -7,18 +7,27 @@ date: 2018-09-15
 
 # Problem 1
 ```{r chunk_name}
-x = runif(n=10,min=0,max=5)
-x
-sum(x > 2)
-
-```
-* Therefore, there are `r sum(x>2)` elements greater than 2.
-
-```{r}
 library(tidyverse)
-y=tibble(
-  vec_char=1:10,
-  vec_factor=factor(c("Male","Male","Female","Male","Female","Male","Female","Female","Female","Male"))
+data_hw=tibble(
+  unif = runif(n=10,min=0,max=5),
+  logic= unif>2,
+  char = c("1995/03/18","1996/03/18","1997/03/18","1998/03/18","1999/03/18","2000/03/18","2001/03/18","2002/03/18","2003/03/18","2004/03/18"),
+  fact = factor(c("Male","Male","Female","Male","Female","Male","Female","Female","Female","Male"))
 )
-y
+data_hw
+guess_1=as.numeric(data_hw$logic)
+guess_1
+guess_2=as.numeric(data_hw$char)
+guess_2
+guess_3=as.numeric(data_hw$fact)
+guess_3
+
 ```
+
+
+
+* The mean of unif is `r mean(data_hw$unif)`
+* The mean of logic is `r mean(data_hw$logic)`
+* The mean of char is `r mean(data_hw$char)`
+* The mean of fact is `r mean(data_hw$fact)`
+
