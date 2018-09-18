@@ -34,23 +34,23 @@ data_hw
     ## # A tibble: 10 x 4
     ##     unif logic char       fact  
     ##    <dbl> <lgl> <chr>      <fct> 
-    ##  1 0.185 FALSE 1995/03/18 Male  
-    ##  2 1.94  FALSE 1996/03/18 Male  
-    ##  3 1.63  FALSE 1997/03/18 Female
-    ##  4 3.65  TRUE  1998/03/18 Male  
-    ##  5 1.46  FALSE 1999/03/18 Female
-    ##  6 0.324 FALSE 2000/03/18 Male  
-    ##  7 1.92  FALSE 2001/03/18 Female
-    ##  8 2.73  TRUE  2002/03/18 Female
-    ##  9 0.673 FALSE 2003/03/18 Female
-    ## 10 2.58  TRUE  2004/03/18 Male
+    ##  1 2.73  TRUE  1995/03/18 Male  
+    ##  2 0.980 FALSE 1996/03/18 Male  
+    ##  3 3.54  TRUE  1997/03/18 Female
+    ##  4 0.240 FALSE 1998/03/18 Male  
+    ##  5 4.59  TRUE  1999/03/18 Female
+    ##  6 4.27  TRUE  2000/03/18 Male  
+    ##  7 3.16  TRUE  2001/03/18 Female
+    ##  8 3.31  TRUE  2002/03/18 Female
+    ##  9 2.07  TRUE  2003/03/18 Female
+    ## 10 1.48  FALSE 2004/03/18 Male
 
 ``` r
 guess_1=as.numeric(data_hw$logic)
 guess_1
 ```
 
-    ##  [1] 0 0 0 1 0 0 0 1 0 1
+    ##  [1] 1 0 1 0 1 1 1 1 1 0
 
 ``` r
 guess_2=as.numeric(data_hw$char)
@@ -71,7 +71,15 @@ guess_3
 
     ##  [1] 2 2 1 2 1 2 1 1 1 2
 
--   The mean of unif is 1.7087849
--   The mean of logic is 0.3
+``` r
+guess_4=as.character(data_hw$fact)
+guess_4
+```
+
+    ##  [1] "Male"   "Male"   "Female" "Male"   "Female" "Male"   "Female"
+    ##  [8] "Female" "Female" "Male"
+
+-   The mean of unif is 2.638552
+-   The mean of logic is 0.7
 -   The mean of char is NA
 -   The mean of fact is NA

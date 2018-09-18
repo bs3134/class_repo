@@ -22,6 +22,8 @@ guess_2
 guess_3=as.numeric(data_hw$fact)
 guess_3
 
+guess_4=as.character(data_hw$fact)
+guess_4
 ```
 
 
