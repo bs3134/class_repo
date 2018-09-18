@@ -1,6 +1,6 @@
 ---
 title: "Homework 1"
-output: html_document
+output: github_document
 author: "Bihui Sun"
 date: 2018-09-15
 ---
