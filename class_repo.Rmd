@@ -33,3 +33,23 @@ guess_4
 * The mean of char is `r mean(data_hw$char)`
 * The mean of fact is `r mean(data_hw$fact)`
 
+
+#Problem 2
+```{r}
+library(tidyverse)
+answer_hw=tibble(
+    x=rnorm(1000,mean=0,sd=1),                    
+    y=rnorm(1000,mean=0,sd=1),
+    logic_2=x+y>0,
+    num_2=as.numeric(logic_2),
+    fact_2=as.factor(logic_2)
+)
+answer_hw
+ggplot(answer_hw, aes(x=x,y=y),col="pink") + geom_point()
+ggsave("hwi_bisu8857.pdf", height = 4, width = 6)
+```
+* The size is `r length(answer_hw$x)`
+* The mean is `r mean(answer_hw$x)`
+* The median is `r median(answer_hw$x)`
+* The proportion of number of True is `r sum(answer_hw$num_2)/length(answer_hw$num_2)`
+

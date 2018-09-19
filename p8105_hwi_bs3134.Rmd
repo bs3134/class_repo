@@ -2,7 +2,7 @@
 title: "Homework 1"
 output: github_document
 author: "Bihui Sun"
-date: 2018-09-15
+date: 2018-09-18
 ---
 
 # Problem 1
@@ -11,11 +11,19 @@ library(tidyverse)
 data_hw=tibble(
   unif = runif(n=10,min=0,max=5),
   logic= unif>2,
-  char = 1:10,
+  char = c("1995/03/18","1996/03/18","1997/03/18","1998/03/18","1999/03/18","2000/03/18","2001/03/18","2002/03/18","2003/03/18","2004/03/18"),
   fact = factor(c("Male","Male","Female","Male","Female","Male","Female","Female","Female","Male"))
 )
 data_hw
+guess_1=as.numeric(data_hw$logic)
+guess_1
+guess_2=as.numeric(data_hw$char)
+guess_2
+guess_3=as.numeric(data_hw$fact)
+guess_3
 
+guess_4=as.character(data_hw$fact)
+guess_4
 ```
 
 
@@ -24,3 +32,23 @@ data_hw
 * The mean of logic is `r mean(data_hw$logic)`
 * The mean of char is `r mean(data_hw$char)`
 * The mean of fact is `r mean(data_hw$fact)`
+
+
+#Problem 2
+```{r}
+library(tidyverse)
+answer_hw=tibble(
+    x=rnorm(1000,mean=0,sd=1),                    
+    y=rnorm(1000,mean=0,sd=1),
+    logic_2=x+y>0,
+    num_2=as.numeric(logic_2),
+    fact_2=as.factor(logic_2)
+)
+answer_hw
+ggplot(answer_hw, aes(x=x,y=y),col="pink") + geom_point()
+ggsave("hwi_bisu8857.pdf", height = 4, width = 6)
+```
+* The size is `r length(answer_hw$x)`
+* The mean is `r mean(answer_hw$x)`
+* The median is `r median(answer_hw$x)`
+* The proportion of number of True is `r sum(answer_hw$num_2)/length(answer_hw$num_2)`
