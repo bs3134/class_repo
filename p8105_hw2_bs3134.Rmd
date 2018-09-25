@@ -12,8 +12,9 @@ subway_file=
   mutate(entry=recode(entry,"YES"=T,"NO"=F))
 dim(subway_file)  
 
-#The dataset contains lines, station names, station latitude, station longitude, routes, entrance type, entry, vending, ADA, ADA notes, 
+#The dataset contains lines, station names, station latitude, station longitude, routes, entrance type, entry, vending, ADA, ADA notes, and the dimension is 1868x28 ##
 
+distinct(subway_file,line,station_name)
 
   
 ```
