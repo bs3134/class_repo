@@ -12,10 +12,21 @@ subway_file=
   mutate(entry=recode(entry,"YES"=T,"NO"=F))
 dim(subway_file)  
 
-#The dataset contains lines, station names, station latitude, station longitude, routes, entrance type, entry, vending, ADA, ADA notes, and the dimension is 1868x28 ##
+#The dataset contains lines, station names, station latitude, station longitude, routes, entrance type, entry, vending, ADA, ADA notes, and the dimension is 1868x28 #
 
-distinct(subway_file,line,station_name) ##Use distinct function, we can get there are totally 465 distinct stations##
+#Use distinct function, we can get there are totally 465 distinct stations#
+distinct(subway_file,line,station_name) 
 
-sum(subway_file$ada)
+
+#Therefore, there are 468 stations are ADA compliant#
+sum(subway_file$ada)     
+
+
+#Convert the value in vending column into 0 and 1 from Yes and No, then we get 183 stations without vending. Using 183 diveded by total station number 1868, then we can get the proportion of station without vending#
+new_list=ifelse(subway_file$vending=="YES", 0, 1)
+sum(new_list)/1868
+
+
+
   
 ```
