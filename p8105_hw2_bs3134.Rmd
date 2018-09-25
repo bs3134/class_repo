@@ -1,0 +1,12 @@
+---
+title: "Untitled"
+output: html_document
+---
+
+```{r}
+library(tidyverse)
+subway_file=read_csv(file="./data_import_examples/NYC_Transit_Subway_Entrance_And_Exit_Data.csv")
+subway_file
+```
+
+
