@@ -1,12 +1,14 @@
 ---
-title: "Untitled"
-output: html_document
+title: "HW2"
+output: github_document
 ---
 
 ```{r}
 library(tidyverse)
-subway_file=read_csv(file="./data_import_examples/NYC_Transit_Subway_Entrance_And_Exit_Data.csv")
-subway_file
-```
+subway_file=
+  read_csv(file="./NYC_Transit_Subway_Entrance_And_Exit_Data.csv") %>%
+  janitor::clean_names() %>%
+  select(-division,exit_only,staff_hours,staffing) %>%
+  mutate(entry=recode(entry,"YES"=1,"NO"=0))
 
 
