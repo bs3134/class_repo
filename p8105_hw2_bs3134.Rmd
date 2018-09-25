@@ -26,6 +26,11 @@ sum(subway_file$ada)
 new_list=ifelse(subway_file$vending=="YES", 0, 1)
 sum(new_list)/1868
 
+real_data=gather(subway_file,key=route,value=bus_number,route1 :route11)
+after_data=distinct(real_data,line,station_name,route,bus_number) 
+after_data
+length(which(after_data$bus_number == "A")) 
+
 
 
   
