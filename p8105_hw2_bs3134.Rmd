@@ -14,7 +14,8 @@ dim(subway_file)
 
 #The dataset contains lines, station names, station latitude, station longitude, routes, entrance type, entry, vending, ADA, ADA notes, and the dimension is 1868x28 ##
 
-distinct(subway_file,line,station_name)
+distinct(subway_file,line,station_name) ##Use distinct function, we can get there are totally 465 distinct stations##
 
+sum(subway_file$ada)
   
 ```
