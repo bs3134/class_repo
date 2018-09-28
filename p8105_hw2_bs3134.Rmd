@@ -3,6 +3,7 @@ title: "HW2"
 output: github_document
 ---
 
+#Problem 1
 ```{r}
 library(tidyverse)
 subway_file=
@@ -33,7 +34,15 @@ after_data
 length(which(after_data$bus_number == "A")) 
 #And 925 stations are ADA compliant#
 sum(after_data$ada)
+```
+#Problem 2
+```{r second}
+library(tidyverse)
+library(readxl)
+data_file=
+  read_excel("./HealthyHarborWaterWheelTotals2017-9-26.xlsx")  %>%
+  janitor::clean_names() %>%
+  select(-x_1)
+data_file
 
-
-  
 ```
