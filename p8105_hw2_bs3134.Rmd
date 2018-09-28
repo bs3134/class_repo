@@ -26,11 +26,13 @@ sum(subway_file$ada)
 new_list=ifelse(subway_file$vending=="YES", 0, 1)
 sum(new_list)/1868
 
+#We change the file into tidy, and we can get there are 60 stations containing A#
 real_data=gather(subway_file,key=route,value=bus_number,route1 :route11)
-after_data=distinct(real_data,line,station_name,route,bus_number) 
+after_data=distinct(real_data,line,station_name,route,bus_number,ada) 
 after_data
 length(which(after_data$bus_number == "A")) 
-
+#And 925 stations are ADA compliant#
+sum(after_data$ada)
 
 
   
