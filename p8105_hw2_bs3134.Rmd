@@ -42,13 +42,22 @@ library(readxl)
 data_file=
   read_excel("./HealthyHarborWaterWheelTotals2017-9-26.xlsx")  %>%
   janitor::clean_names() %>%
-  select(-x_1)                                      ##x_1 represents the columns containing notes##
+  select(-x_1)                    #x_1 represents the columns containing notes, and I remove this column#
 data_file
 
-##Then I omit rows without value in Dumpster column, and now there are 206 rows left##  
+#Then I omit rows without value in Dumpster column, and now there are 216 rows left# 
 new_file=data_file[!(data_file$dumpster == "" | is.na(data_file$dumpster)), ]
 new_file
-##Then I round the number of sport balls to integer 3287.6 to 3288##
+#Then I round the number of sport balls to integer 3287.6 to 3288#
 as.integer(round(new_file$sports_balls))
+
+#Then I read and create new variables while year=2016,2017# 
+data_file_2016=filter(data_file,year=="2016")%>%
+  janitor::clean_names()
+data_file_2017=filter(data_file,year=="2017")%>%
+  janitor::clean_names()
+combine_data=full_join(data_file_2016,data_file_2017, by = "year")
+combine_data
+
 ```
 
