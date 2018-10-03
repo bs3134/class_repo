@@ -76,3 +76,32 @@ sum(new_data_2017$total)
 new_file_2016=filter(new_file,year==2016)
 median(new_file_2016$sports_balls)
 ```
+
+#Problem 3
+```{r third}
+library(tidyverse)
+library(p8105.datasets)
+
+#load and run the file from git#
+gitfile=brfss_smart2010                            
+gitfile
+
+#remove several specific columns, and there are 5 columns left now#
+new=select(gitfile,-Class,-Topic,-Question,-Sample_Size,-Confidence_limit_Low:-GeoLocation)
+new
+
+#Then I change the value of response (excellent to poor) into columns using "spread" function and get the propotion#
+head=head(new,5)
+proportion=spread(head,key=Response,value=Data_value)
+proportion
+
+
+
+
+
+
+
+
+
+
+```
