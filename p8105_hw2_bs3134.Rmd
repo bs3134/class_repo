@@ -51,13 +51,28 @@ new_file
 #Then I round the number of sport balls to integer 3287.6 to 3288#
 as.integer(round(new_file$sports_balls))
 
-#Then I read and create new variables while year=2016,2017# 
-data_file_2016=filter(data_file,year=="2016")%>%
-  janitor::clean_names()
-data_file_2017=filter(data_file,year=="2017")%>%
-  janitor::clean_names()
-combine_data=full_join(data_file_2016,data_file_2017, by = "year")
-combine_data
+#Then I read and create new variables while year=2016,2017, and adding a new variable year# 
+new_data_2016=read_excel("./HealthyHarborWaterWheelTotals2017-9-26.xlsx", sheet = "2016 Precipitation")%>%
+  janitor::clean_names()%>%
+  mutate(year=2016)
+new_data_2016
 
+data_file_2017=read_excel("./HealthyHarborWaterWheelTotals2017-9-26.xlsx", sheet = "2017 Precipitation")%>%
+  janitor::clean_names()%>%
+  mutate(year=2017)
+
+#remove the missing values#
+new_data_2017 <- na.omit(data_file_2017)
+new_data_2017
+
+#Then combine the two datas#
+new_data=bind_rows(new_data_2016,new_data_2017)
+new_data
+month.name[new_data$month]
+
+#In 2016, there are 12 months precipitation observations, while in 2017, there are 8 observations.#
+#In 2017, the total precipitaion is 29.93. And the median of 2016 sport balls is 26.#
+sum(new_data_2017$total)
+new_file_2016=filter(new_file,year==2016)
+median(new_file_2016$sports_balls)
 ```
-
